@@ -1,13 +1,21 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
-    <h2>Active Listings</h2>
+<h2>Active Listings</h2>
+
+{% for listing in listings %}
     <!----Card for Active listing-->
     <div class="card" style="width: 18rem;">
-    <div class="card">Product</div>
-    <h5><div class="title">Title</div></h5>
-    <p class="card-text">Sample Text</p>
+        <h5>
+            <a href="/listing?id={{listing.id}}">
+            {{listing.title}}
+        </a>
+        </h5>
+        <p class="card-text">By: {{listing.created_user}}</p>
+        <p class="card-text">{{listing.description}}</p>
+        <p class="card-text">Starting Bid: {{listing.starting_bid}}</p>
+    </div>
+{% endfor %}
+
 </div>
-</div>
-    TODO
 {% endblock %}

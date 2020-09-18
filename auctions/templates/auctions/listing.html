@@ -1,0 +1,11 @@
+{% if listing %}
+
+<div class="card">
+    <h5>{{listing.title}}</h5>
+    <p>{{listing.description}}</p>
+    <p>{{listing.starting_bid}}</p>
+</div>
+
+{% else %}
+<h1>Could not find the listing you specified!!</h1>
+{% endif %}
