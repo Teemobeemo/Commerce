@@ -2,13 +2,12 @@
 
 {% block body %}
     <h2>Active Listings</h2>
-
-    {% for listing in listings %}
-            <h2>{{listing.title}}</h2>
-            <p>{{listing.description}}</p>
-            <p>{{listing.created_user}}</p>
-            <p>{{listing.starting_bid}}</p>
-            <iframe src="{{listing.image_url}}" frameborder="0"></iframe>
-    {% endfor %}
-
+    <!----Card for Active listing-->
+    <div class="card" style="width: 18rem;">
+    <div class="card">Product</div>
+    <h5><div class="title">Title</div></h5>
+    <p class="card-text">Sample Text</p>
+</div>
+</div>
+    TODO
 {% endblock %}
