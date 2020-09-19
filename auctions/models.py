@@ -11,6 +11,7 @@ class Listing(models.Model):
     description = models.CharField(max_length=500)
     starting_bid = models.PositiveIntegerField(default=0)
     image_url = models.CharField(max_length=500)
+    is_closed = models.BooleanField(default=False)
 
 class Bid(models.Model):
     bidding_user = models.ForeignKey(User,default=1, on_delete=models.CASCADE)
