@@ -2,7 +2,7 @@ from django import forms
 from django.db.models.fields import PositiveIntegerField
 from django.forms import fields
 from django.forms import models
-from .models import Listing
+from .models import Listing,Comment
 
 class NewListingForm(forms.ModelForm):
     title = forms.CharField(max_length=80)
@@ -17,4 +17,13 @@ class NewListingForm(forms.ModelForm):
             'description',
             'starting_bid',
             'image_url'
+        ]
+
+class NewCommentForm(forms.ModelForm):
+    comment_text = forms.CharField(max_length=200)
+
+    class Meta:
+        model=Comment
+        fields =[
+            'comment_text'
         ]
