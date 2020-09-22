@@ -1,23 +1,28 @@
 {% extends "auctions/layout.html" %}
-
+a
 {% block body %}
-    <h2>Active Listings</h2>
-    <!----Card for Active listing-->
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt=" List image">
-  <div class="card-body">
-    <h5 class="card-title">Product Title</h5>
-    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-  </div>
+<h2>Active Listings</h2>
 
-  <div class="card-body1">
-    <a href="#" class="card-link btn-primary btn-lg">View</a>
+{% for listing in listings %}
+
+<div class="card custom-card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt=" List image">
+  <div class="card-body mt-1 pt-3">
+    
+    <h5 class="card-title card-heading">
+      {{listing.title}}
+    </h5>
+    <p class="card-text pt-2">By: {{listing.created_user}}</p>
+    <p class="card-text pt-2">{{listing.description}}</p>
+    <p class="card-text pt-2">Starting Bid: {{listing.starting_bid}}</p>
+    <a href="/listing?id={{listing.id}}" class="card-link btn-primary btn">View</a>
+
   </div>
 </div>
 
+{% endfor %}
 
 {% endblock %}
 
 
-<div class="card text-center custom-card mx-auto mt-3 style="width: 18rem;></div>
-
+<div class="card text-center custom-card mx-auto mt-3 style=" width: 18rem;></div>

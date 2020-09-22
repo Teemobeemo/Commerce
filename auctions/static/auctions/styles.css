@@ -5,14 +5,6 @@ body {
     font-family: Kumbh Sans;
 }
 
-.form-group{
-    margin-left: 20px;
-}
-
-.btn-primary{
-    margin-left: 31px;
-}
-
 h1{
     color: 222831;
 }
@@ -28,12 +20,9 @@ h2{
 
 h1{
     text-align: left;
-    padding: 10px;
     font-weight: bold;
-    padding-bottom: value;
     display: inline-block;
     border-bottom: 5px solid #000;
-    padding-bottom: 5px;
 }
 
  h1{
@@ -44,7 +33,7 @@ strong{
     padding-left: 10px;
 }
 
-.card {
+.custom-card {
     margin: 0 auto; /* Added */
     float: none; /* Added */
     margin-bottom: 10px; /* Added */
@@ -52,7 +41,7 @@ strong{
     box-shadow: 10px 10px 30px rgba(0,109,175,.2);
 }
 
-.card-title{
+.card-heading{
     font-weight: bold;
     font-size: 1.5rem;
 }
@@ -61,19 +50,6 @@ strong{
     border-radius: 5px;
     padding: 9px 8px;
     padding-bottom: 5px;
-}
-
-.card-text{
-    padding-top: 10px;
-}
-
-.card-body{
-    margin-top: 5px;
-    padding: 30px;
-}
-
-.form-control{
-    width: min-content;
 }
 
 .form-text{
