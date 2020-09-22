@@ -1,5 +1,5 @@
 {% load static %}
-
+<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,7 +8,7 @@
         <link href="{% static 'auctions/styles.css' %}" rel="stylesheet">
     </head>
     <body>
-        <h1>Auctions</h1>
+        <span><h1>Auctions</h1></span>
         <div>
             {% if user.is_authenticated %}
                 Signed in as <strong>{{ user.username }}</strong>.
