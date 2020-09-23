@@ -12,3 +12,15 @@ async function closeListing(id){
     }
 
 }
+
+async function addToWatchList(id) {
+    const response = await fetch(`/api/watchlist?id=${id}`)
+    const json = await response.json()
+
+    if (json.status){
+alert('added to watchlist')
+    }else{
+        alert(json.error)
+    }
+
+}
