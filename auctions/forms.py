@@ -4,6 +4,13 @@ from django.forms import fields
 from django.forms import models
 from .models import Listing,Comment
 
+CATEGORY_CHOICE = [
+    ('Electronics','Electronics'),
+    ('Home Appliances','Home Appliances'),
+    ('Food and groceries','Food and groceries'),
+    ('outdoor','outdoor'),
+    ('Other','Other')
+]
 
 
 class NewListingForm(forms.ModelForm):
