@@ -3,6 +3,7 @@ from .models import Listing
 from .forms import NewListingForm
 from django.contrib.auth.decorators import login_required
 
+# Create a new listing
 @login_required()
 def create_listing(request):
     new_listing_form = NewListingForm(request.POST or None)

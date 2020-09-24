@@ -28,6 +28,9 @@ h1{
  h1{
     border-bottom-color: 3282b8;
 }
+.dfle{
+    display: flex;
+}
 
 strong{
     padding-left: 10px;

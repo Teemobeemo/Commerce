@@ -2,6 +2,14 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.timezone import now
 
+CATEGORY_CHOICE = [
+    ('Electronics','Electronics'),
+    ('Home Appliances','Home Appliances'),
+    ('Food and groceries','Food and groceries'),
+    ('outdoor','outdoor'),
+    ('Other','Other')
+]
+
 class User(AbstractUser):
     pass
 
@@ -12,6 +20,7 @@ class Listing(models.Model):
     starting_bid = models.PositiveIntegerField(default=0)
     image_url = models.CharField(max_length=500)
     is_closed = models.BooleanField(default=False)
+    category = models.CharField(max_length=100,choices=CATEGORY_CHOICE,default='Other')
 
 class Bid(models.Model):
     bidding_user = models.ForeignKey(User,default=1, on_delete=models.CASCADE)
@@ -27,7 +36,3 @@ class Comment(models.Model):
 class WatchList(models.Model):
     user = models.ForeignKey(User,default=1, on_delete=models.CASCADE)
     listing = models.ForeignKey(Listing,default=1, on_delete=models.CASCADE)
-
-class Category(models.Model):
-    name = models.CharField(max_length=100)
-    listing = models.ForeignKey(Listing,default=1,on_delete=models.CASCADE)
