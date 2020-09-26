@@ -1,7 +1,4 @@
 from django import forms
-from django.db.models.fields import PositiveIntegerField
-from django.forms import fields
-from django.forms import models
 from .models import Listing,Comment
 
 CATEGORY_CHOICE = [
@@ -14,10 +11,12 @@ CATEGORY_CHOICE = [
 
 
 class NewListingForm(forms.ModelForm):
-    title = forms.CharField(max_length=80)
-    description = forms.CharField(max_length=500)
-    starting_bid = forms.IntegerField()
-    image_url = forms.CharField(max_length=500)
+    # Add 'form-control' class to all.
+    # To add id => {'class":'form-control','id':'YOUR ID GOES HERE'}
+    title = forms.CharField(max_length=80,widget=forms.TextInput(attrs={'class': "form-control"}))
+    description = forms.CharField(max_length=500,widget=forms.TextInput(attrs={'class':'form-control'}))
+    starting_bid = forms.IntegerField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    image_url = forms.CharField(max_length=500,widget=forms.TextInput(attrs={'class':'form-control'}))
     category = forms.ChoiceField(choices=CATEGORY_CHOICE,widget=forms.RadioSelect)
 
     class Meta:

@@ -1,5 +1,15 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+
 <form action="/new" method="post">
-    {%csrf_token%}
-    {{new_listing_form}}
-    <button type="submit">New listing!!</button>
+  {%csrf_token%}
+  {% load widget_tweaks%}
+  {% for field in new_listing_form %}
+  <div class='form-group'>
+    {% render_field field class+="" placeholder+=field.label %}
+  </div>
+  {% endfor %}
+  <button type="submit">New listing!!</button>
 </form>
+
+{% endblock %}
