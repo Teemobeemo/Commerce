@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from .models import Listing,Comment
+from .models import Listing,Comment,Bid
 from .forms import NewCommentForm
+from django.db.models import Max
 
 def listing(request):
     listing_id = request.GET.get('id')
@@ -10,9 +11,13 @@ def listing(request):
     # Check for new comments
     new_comment_form = NewCommentForm(request.POST or None)
 
+    max_bid = None
+
     try:
         listing = Listing.objects.get(id = listing_id)
-        
+        all_bids = Bid.objects.filter(listing=listing)
+        max_bid = all_bids.aggregate(Max('bidding_amount'))
+        max_bid=(max_bid.get('bidding_amount__max'))
         if request.POST:
             if new_comment_form.is_valid():
                 comment = new_comment_form.save(commit=False)
@@ -28,5 +33,6 @@ def listing(request):
     return render(request,'auctions/listing.html',{
         'listing':listing,
         'comments':comments,
-        'new_comment_form':new_comment_form
+        'new_comment_form':new_comment_form,
+        'max_bid':max_bid
     })
