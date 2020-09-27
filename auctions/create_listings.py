@@ -1,9 +1,11 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from .models import Listing
 from .forms import NewListingForm
 from django.contrib.auth.decorators import login_required
 
 # Create a new listing
+
+
 @login_required()
 def create_listing(request):
     new_listing_form = NewListingForm(request.POST or None)
@@ -15,4 +17,4 @@ def create_listing(request):
             return redirect('index')
 
     return render(
-        request,'auctions/create-listing.html',{'new_listing_form':new_listing_form})
+        request, 'auctions/create-listing.html', {'new_listing_form': new_listing_form})

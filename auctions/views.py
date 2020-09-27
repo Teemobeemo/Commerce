@@ -7,9 +7,6 @@ from django.urls import reverse
 from .models import User
 
 
-
-
-
 def login_view(request):
     if request.method == "POST":
 

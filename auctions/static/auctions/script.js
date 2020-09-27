@@ -57,7 +57,7 @@ async function bid(id) {
         body: JSON.stringify({ amt: amt, id: id })
     });
     const json = await response.json()
-    
+
     if (json.success) {
         const h5 = document.getElementById('max-bid')
         h5.innerText = json.max_bid_amt

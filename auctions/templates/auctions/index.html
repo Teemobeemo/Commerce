@@ -3,24 +3,24 @@
 {% block body %}
 <h2>Active Listings</h2>
 <div class="row">
-{% for listing in listings %}
-<div class="col-sm-4"> 
-<div class="card custom-card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt=" List image">
-  <div class="card-body mt-1 pt-3">
-    
-    <h5 class="card-title card-heading">
-      {{listing.title}}
-    </h5>
-    <p class="card-text pt-2">By: {{listing.created_user}}</p>
-    <p>{{listing.category}}</p>
-    <p class="card-text pt-2">{{listing.description}}</p>
-    <p class="card-text pt-2">Starting Bid: {{listing.starting_bid}}</p>
-    <a href="/listing?id={{listing.id}}" class="card-link btn-primary btn">View</a>
+  {% for listing in listings %}
+  <div class="col-sm-4">
+    <div class="card custom-card" style="width: 18rem;">
+      <img class="card-img-top" src="..." alt=" List image">
+      <div class="card-body mt-1 pt-3">
 
+        <h5 class="card-title card-heading">
+          {{listing.title}}
+        </h5>
+        <p class="card-text pt-2">By: {{listing.created_user}}</p>
+        <p>{{listing.category}}</p>
+        <p class="card-text pt-2">{{listing.description}}</p>
+        <p class="card-text pt-2">Starting Bid: {{listing.starting_bid}}</p>
+        <a href="/listing?id={{listing.id}}" class="card-link btn-primary btn">View</a>
+
+      </div>
+    </div>
   </div>
-</div>
-</div>
-{% endfor %}
+  {% endfor %}
 </div>
 {% endblock %}
