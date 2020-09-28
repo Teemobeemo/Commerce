@@ -1,7 +1,9 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
+{% if listings %}
 <div class="row">
+
   {% for listing in listings %}
   <div class="col-sm-4">
     <div class="card custom-card" style="width: 18rem;">
@@ -20,6 +22,19 @@
       </div>
     </div>
   </div>
-  {% endfor %}
 </div>
+{% endfor %}
+{% else %}
+{% if categories %}
+
+<h1>lIST OF CATEGORUES</h1>
+<ul>
+  {% for category in categories %}
+  <li><a href="/category?c={{category}}">{{category}}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}
+<h2>Nothing here!</h2>
+{% endif %}
+
 {% endblock %}
