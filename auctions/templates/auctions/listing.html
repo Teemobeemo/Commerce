@@ -8,7 +8,7 @@
 {% if listing %}
 <div class="card" style="padding-left: 3rem; padding-right: 3rem; max-width: 600px; margin:auto;">
     <div class="dfle">
-        <h2 class="mt-3" style="margin-left: 10px;">{{listing.title}}</h2>
+        <h2 class="mt-3" >{{listing.title}}</h2>
 
         {% if listing.is_closed %}
         <div id='closed'>
@@ -25,11 +25,7 @@
         </svg>
     </div>
     <div id="listing-content">
-        {% if max_bid %}
-        <h5 id='max-bid'>Max bid: {{max_bid}}</h5>
-        {% else %}
-        <h5 id='max-bid'>Starting bid: {{listing.starting_bid}}</h5>
-        {% endif %}
+        <h5 id='max-bid'>Highest bid: {{listing.starting_bid}}</h5>
 
         <h4>Created by: {{listing.created_user}}</h4>
         <b>{{listing.description}}</b>
@@ -78,6 +74,7 @@
 </div>
 
 {% else %}
+<!-- Error -->
 <h1>Could not find the listing you specified!!</h1>
 {% endif %}
 {%endblock%}

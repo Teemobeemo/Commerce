@@ -32,10 +32,7 @@ def bid_api(request):
 
         # If there is no max_bid then add this
         if not max_bid:
-            bid = Bid(listing=listing, bidding_user=user,
-                      bidding_amount=bidding_amt)
-            bid.save()
-            return JsonResponse({'success': 'ok', 'max_bid_amt': bidding_amt, 'num_bid': 1})
+            max_bid=listing.starting_bid
 
         # If there is a max bid then check if the current amt is larger than the max bid
         if not bidding_amt >= max_bid:
@@ -45,11 +42,14 @@ def bid_api(request):
         bid = Bid(listing=listing, bidding_user=user,
                   bidding_amount=bidding_amt)
         bid.save()
+        listing.starting_bid = bidding_amt
+        listing.save()
+
 
         # Get all the number of bid(s)
         num_bid = Bid.objects.count()
 
-        return JsonResponse({'success': 'ok', 'max_bid_amt': bidding_amt, 'num_bid': num_bid})
+        return JsonResponse({'success': 'ok', 'max_bid_amt':listing.starting_bid,'num_bid': num_bid})
     
     # Error out if the listing does not exist
     except Listing.DoesNotExist:
