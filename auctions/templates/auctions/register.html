@@ -3,7 +3,7 @@
 {% block body %}
 <div class="card custom-card " style="max-width: 350px;">
 
-  <h2>Register</h2>
+  <h2 class="ml-2 pt-2">Register</h2>
 
   <!-- Display any error messages -->
   {% if message %}
@@ -42,6 +42,6 @@
   </form>
 
 
-  <p class="ml-2 ">Have a account already? <a href="{% url 'login' %}">Sign in</a></p>
+  <p class="ml-2 mt-2 ">Have a account already? <a href="{% url 'login' %}">Sign in</a></p>
 </div>
 {% endblock %}

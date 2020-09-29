@@ -1,6 +1,6 @@
 {% extends "auctions/layout.html" %}
 {% block body %}
-
+<div class="custom-card pl-2 pr-2 pt-2" style="max-width: 400px;">
 <form action="/new" method="post">
   {%csrf_token%}
   {% load widget_tweaks%}
@@ -9,7 +9,8 @@
     {% render_field field class+="" placeholder+=field.label %}
   </div>
   {% endfor %}
-  <button type="submit">New listing!!</button>
+  <button class="card-link btn-primary btn" type="submit"
+   >New listing!</button>
 </form>
-
+</div>
 {% endblock %}

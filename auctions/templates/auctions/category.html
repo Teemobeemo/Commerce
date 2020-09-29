@@ -26,15 +26,20 @@
 {% endfor %}
 {% else %}
 {% if categories %}
-
-<h1>lIST OF CATEGORUES</h1>
-<ul>
+<div class="custom-card pl-2" style="max-width: 400px;">
+<h1>List of Categories</h1>
+<ul id="categoryList">
   {% for category in categories %}
   <li><a href="/category?c={{category}}">{{category}}</a></li>
   {% endfor %}
-</ul>
+</ul></div>
+{% else %}
+<div class="custom-card pl-2" style="max-width: 400px;">
+
+<h2 class="text-center">Nothing here!</h2>
+</div>
+
 {% endif %}
-<h2>Nothing here!</h2>
 {% endif %}
 
 {% endblock %}
