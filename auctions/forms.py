@@ -5,7 +5,7 @@ CATEGORY_CHOICE = [
     ('Electronics', 'Electronics'),
     ('Home Appliances', 'Home Appliances'),
     ('Food and groceries', 'Food and groceries'),
-    ('outdoor', 'outdoor'),
+    ('Outdoor', 'Outdoor'),
     ('Other', 'Other')
 ]
 

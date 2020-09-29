@@ -4,11 +4,14 @@ from .models import Listing
 
 
 def close_listing_api(request):
+    # Check if user logged in
     if not request.user.is_authenticated:
         return JsonResponse({'error': 'You should be logged in!'})
 
+    # Get listing id
     listing_id = request.GET.get('id')
 
+    # Try to get the listing. Then close it
     try:
         listing = Listing.objects.get(id=listing_id)
         listing.is_closed = True
