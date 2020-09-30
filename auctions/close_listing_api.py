@@ -14,6 +14,8 @@ def close_listing_api(request):
     # Try to get the listing. Then close it
     try:
         listing = Listing.objects.get(id=listing_id)
+        if not listing.created_user.id is request.user.id:
+            return JsonResponse({"error":"not your listing"})
         listing.is_closed = True
         listing.save()
         return JsonResponse({'status': 'listing closed!'})
