@@ -17,7 +17,8 @@ def listing(request):
     try:
         listing = Listing.objects.get(id=listing_id)
         all_bids = Bid.objects.filter(listing=listing)
-        max_bid_obj = (Bid.objects.filter(listing = listing)).order_by('-bidding_amount')[0]
+        try:
+            max_bid_obj = (Bid.objects.filter(listing = listing)).order_by('-bidding_amount')[0]
         if request.POST:
             if new_comment_form.is_valid():
                 comment = new_comment_form.save(commit=False)
