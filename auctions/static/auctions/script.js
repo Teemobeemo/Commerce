@@ -17,7 +17,7 @@ async function addToWatchList(id) {
     const json = await response.json()
 
     if (json.status) {
-        alert('added to watchlist')
+        alert(json.status)
     } else {
         alert(json.error)
     }

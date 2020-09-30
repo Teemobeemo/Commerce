@@ -20,7 +20,8 @@ def add_to_watchlist(request):
         # Try and check if the watchlist already exists
         try:
             watchlist = WatchList.objects.get(listing=listing, user=user)
-            return JsonResponse({'error': 'already watchlisted'})
+            watchlist.delete()
+            return JsonResponse({'status': 'remove'})
 
         # User has not watchlisted it. Add it
         except WatchList.DoesNotExist:
@@ -28,7 +29,7 @@ def add_to_watchlist(request):
             watchlist.user = user
             watchlist.listing = listing
             watchlist.save()
-            return JsonResponse({'status': 'success'})
+            return JsonResponse({'status': 'add'})
 
     # Error out if the listing does not exist
     except Listing.DoesNotExist:
