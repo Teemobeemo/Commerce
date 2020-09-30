@@ -35,7 +35,7 @@ def bid_api(request):
             max_bid=listing.starting_bid
 
         # If there is a max bid then check if the current amt is larger than the max bid
-        if not bidding_amt >= max_bid:
+        if not bidding_amt > max_bid:
             return JsonResponse({'error': "pay more than the highest current bid"})
 
         # save the bid
