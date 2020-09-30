@@ -19,6 +19,8 @@ def listing(request):
         all_bids = Bid.objects.filter(listing=listing)
         try:
             max_bid_obj = (Bid.objects.filter(listing = listing)).order_by('-bidding_amount')[0]
+        except:
+            print('erro')
         if request.POST:
             if new_comment_form.is_valid():
                 comment = new_comment_form.save(commit=False)
