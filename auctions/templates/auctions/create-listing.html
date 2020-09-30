@@ -1,6 +1,6 @@
 {% extends "auctions/layout.html" %}
 {% block body %}
-<div class="custom-card pl-2 pr-2 pt-2" style="max-width: 400px;">
+<div class="custom-card pl-2 pr-2 pt-2 pb-3" style="max-width: 400px;">
 <form action="/new" method="post">
   {%csrf_token%}
   {% load widget_tweaks%}
