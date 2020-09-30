@@ -12,6 +12,11 @@
 
         {% if listing.is_closed %}
         <div id='closed'>
+            {% if max_bid.bidding_user.id == user.id %}
+            <p>You won the auction</p>
+            {% else %}
+            <p>{{max_bid.bidding_user}} won the auction</p>
+            {% endif %}
             <p>Listing closed</p>
         </div>
         {% else %}
